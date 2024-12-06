@@ -1,0 +1,296 @@
+{
+    "patches": [
+        {
+            "label": "2024-12-05_16-12-31",
+            "content": "@@ -377,1464 +377,17 @@\n ass \n-Pessoa%7B%0A    private nome: string %7C null;%0A    private dinheiro: number;%0A%0A    constructor(nome: string, dinheiro: number)%7B%0A        this.nome = nome;%0A        this.dinheiro = dinheiro;%0A    %7D%0A%0A    public getNome(): string %7C null%7B%0A        return this.nome;%0A    %7D%0A%0A    public getDinheiro(): number %7B%0A        return this.dinheiro;%0A    %7D%0A%0A    public setNome(value: string): void %7B%0A        this.nome = value;%0A    %7D%0A%0A    public setDinheiro(value: number): void%7B%0A        this.dinheiro = value;%0A    %7D%0A%7D%0A%0Aclass Moto%7B%0A    private custo: number;%0A    private motorista: Pessoa %7C null;%0A    private passageiro: Pessoa %7C null;%0A%0A    constructor()%7B%0A        this.custo = 0;%0A        this.motorista = null;%0A        this.passageiro = null;        %0A    %7D%0A%0A    public getPassageiro(): Pessoa %7C null%7B%0A        return this.passageiro;%0A    %7D%0A%0A    public getMotorista(): Pessoa %7C null%7B%0A        return this.motorista;%0A    %7D%0A    %0A    public getCusto(): number%7B%0A        return this.custo;%0A    %7D%0A%0A    public setCusto(value: number): void%7B%0A        this.custo = value;%0A    %7D%0A%0A    public setMotorista(value: Pessoa %7C null): void%7B%0A        this.motorista = value;%0A    %7D%0A%0A    public setPassageiro(value: Pessoa %7C null): void%7B%0A        this.passageiro = value;%0A    %7D%0A%0A    toString(): string%7B%0A        return %60Cost: $%7Bthis.getCusto()%7D, Driver: $%7Bthis.getMotorista()%7D, Passenger: $%7Bthis.getPassageiro()%7D%60%0A    %7D%0A%7D%0A%0Aclass Adapter %7B%0A    moto: Moto;%0A%0A    constructor()%7B%0A        this.moto = new Moto();%0A    %7D%0A\n+Adapter %7B\n %0A   \n@@ -577,24 +577,24 @@\n id %7B%0A    %7D%0A%0A\n+\n     show(): \n@@ -604,50 +604,8 @@\n d %7B%0A\n-        console.log(this.moto.toString())%0A\n     \n"
+        },
+        {
+            "label": "2024-12-05_16-52-43",
+            "content": "@@ -1568,265 +1568,63 @@\n     \n-if (this.getMotorista == null) %7B%0A            return;%0A        %7D%0A%0A        this.passageiro = value;%0A    %7D%0A%0A    toString(): string%7B%0A%0A        if (this.getMotorista == null) %7B%0A            return %60Cost: $%7Bthis.getCusto()%7D, Driver: None, Passenger: None%7D%60%0A        %7D\n+this.passageiro = value;%0A    %7D%0A%0A    toString(): string%7B\n %0A   \n"
+        },
+        {
+            "label": "2024-12-05_16-59-23",
+            "content": "@@ -1809,16 +1809,17 @@\n er: None\n+%7D\n %60%0A      \n"
+        },
+        {
+            "label": "2024-12-05_16-59-47",
+            "content": "@@ -1722,18 +1722,16 @@\n otorista\n-()\n  == null\n"
+        },
+        {
+            "label": "2024-12-05_17-00-17",
+            "content": "@@ -1438,218 +1438,121 @@\n sta(\n-nome: string %7C null, dinheiro: number): void%7B%0A        this.motorista?.setNome(nome);%0A        this.motorista?.setDinheiro(dinheiro);%0A        %0A    %7D%0A%0A    public setPassageiro(nome: string %7C null, dinheiro: number\n+value: Pessoa %7C null): void%7B%0A        this.motorista = value;%0A    %7D%0A%0A    public setPassageiro(value: Pessoa %7C null\n ): v\n@@ -1568,78 +1568,103 @@\n     \n+if (\n this.\n-passageiro?.setNome(nome);%0A        this.passageiro?.setDinheiro()\n+getMotorista == null) %7B%0A            return;%0A        %7D%0A%0A        this.passageiro = value\n ;%0A  \n"
+        },
+        {
+            "label": "2024-12-05_17-10-58",
+            "content": "@@ -405,16 +405,23 @@\n : string\n+ %7C null\n ;%0A    pr\n@@ -518,17 +518,16 @@\n e = nome\n- \n ;%0A      \n@@ -589,16 +589,23 @@\n : string\n+ %7C null\n %7B%0A      \n@@ -1438,32 +1438,39 @@\n sta(nome: string\n+ %7C null\n , dinheiro: numb\n@@ -1611,32 +1611,39 @@\n iro(nome: string\n+ %7C null\n , dinheiro: numb\n@@ -1726,32 +1726,24 @@\n setDinheiro(\n-dinheiro\n );%0A    %7D%0A%0A  \n@@ -2160,52 +2160,8 @@\n d %7B%0A\n-        this.moto.setMotorista(name, money)%0A\n     \n"
+        },
+        {
+            "label": "2024-12-05_17-34-52",
+            "content": "@@ -2250,130 +2250,46 @@\n     \n-    this.moto.setPassageiro(name, money);%0A    %7D%0A%0A    drive(distance: number): void %7B%0A        this.moto.setCusto(distance);\n+%7D%0A%0A    drive(distance: number): void %7B\n %0A   \n"
+        },
+        {
+            "label": "2024-12-05_17-35-55",
+            "content": "@@ -2025,16 +2025,55 @@\n to: Moto\n+;%0A%0A    constructor()%7B%0A        this.moto\n  = new M\n@@ -2079,16 +2079,21 @@\n Moto();%0A\n+    %7D\n %0A%0A    se\n"
+        },
+        {
+            "label": "2024-12-05_22-13-37",
+            "content": "@@ -1427,22 +1427,40 @@\n a(nome: \n-Pessoa\n+string, dinheiro: number\n ): void%7B\n@@ -1482,23 +1482,78 @@\n otorista\n- = nome\n+?.setNome(nome);%0A        this.motorista?.setDinheiro(dinheiro)\n ;%0A      \n@@ -2128,32 +2128,20 @@\n sta(\n-new Pessoa(\n name,\n+ \n money)\n-);\n %0A   \n"
+        },
+        {
+            "label": "2024-12-05_23-13-06",
+            "content": "@@ -1,813 +1,139 @@\n-function input(): string %7B let X: any = input; X.L = X.L %7C%7C require(%22fs%22).readFileSync(0).toString().split(/%5Cr?%5Cn/); return X.L.shift(); %7D // _TEST_ONLY_%0A//function input(): string %7B let X: any = input; X.P = X.P %7C%7C require(%22readline-sync%22); return X.P.question() %7D // _FREE_ONLY_%0Afunction write(text: any, endl=%22%5Cn%22) %7B process.stdout.write(%22%22 + text + endl); %7D%0Aexport %7B%7D;%0A%0Aclass Pessoa%7B%0A    private nome: string;%0A    private dinheiro: number;%0A%0A    constructor(nome: string, dinheiro: number)%7B%0A        this.nome = nome ;%0A        this.dinheiro = dinheiro;%0A    %7D%0A%0A    public getNome(): string%7B%0A        return this.nome;%0A    %7D%0A%0A    public getDinheiro(): number %7B%0A        return this.dinheiro;%0A    %7D%0A%0A    public setNome(value: string): void %7B%0A        this.nome = value;%0A    %7D%0A%0A    public setD\n+@@ -1233,17 +1233,25 @@%0A rn this.%0A-P%0A+motorista%0A ;%250A    %257D%250A%0A@@ -1516,30 +1516,48 @@%0A geiro(nome: %0A-Pessoa%0A+string, d\n inheiro\n-(value\n : number\n ): v\n@@ -132,1292 +132,189 @@\n mber\n+%0A \n ): void\n-%7B%0A        this.dinheiro = value;%0A    %7D%0A%7D%0A%0Aclass Moto%7B%0A    private custo: number;%0A    private motorista: Pessoa %7C null;%0A    private passageiro: Pessoa %7C null;%0A%0A    constructor()%7B%0A        this.custo = 0;%0A        this.motorista = null;%0A        this.passageiro = null;        %0A    %7D%0A%0A    public getPassageiro(): Pessoa %7C null%7B%0A        return this.passageiro;%0A    %7D%0A%0A    public getMotorista(): Pessoa %7C null%7B%0A        return this.P;%0A    %7D%0A    %0A    public getCusto(): number%7B%0A        return this.custo;%0A    %7D%0A%0A    public setCusto(value: number): void%7B%0A        this.custo = value;%0A    %7D%0A%0A    public setMotorista(nome: Pessoa): void%7B%0A        this.motorista = nome;%0A        %0A    %7D%0A%0A    public setPassageiro(nome: Pessoa): void%7B%0A        this.passageiro = nome%0A    %7D%0A%0A    toString(): string%7B%0A%0A        if (this.getMotorista() == null) %7B%0A            return %60Cost: $%7Bthis.getCusto()%7D, Driver: None, Passenger: None%60%0A        %7D%0A        return %60Cost: $%7Bthis.getCusto()%7D, Driver: $%7Bthis.getMotorista()%7D, Passenger: $%7Bthis.getPassageiro()%7D%60%0A    %7D%0A%7D%0A%0Aclass Adapter %7B%0A    moto: Moto = new Moto();%0A%0A%0A    setDriver(name: string, money: number): void %7B%0A        this.moto.setMotorista(new Pessoa(name,money));%0A    %7D%0A%0A    setPassenger(name: string, money: number): void %7B%0A        this.moto.setPas\n+%257B%250A   %0A@@ -1576,23 +1576,80 @@%0A ssageiro%0A- = nome%0A+?.setNome(nome);%250A        this.passageiro?.setDinheiro(dinheiro);%0A %250A    %257D%250A%250A%0A@@ -2169,39 +2169,28 @@%0A \n sageiro(\n new \n@@ -309,16 +309,18 @@\n sageiro(\n+%0A-\n new Pess\n@@ -326,1037 +326,42 @@\n soa(\n-name,money));%0A    %7D%0A%0A    drive(distance: number): void %7B%0A        this.moto.setCusto(distance);%0A    %7D%0A%0A    leavePassenger(): void %7B%0A    %7D%0A%0A    show(): void %7B%0A        console.log(this.moto.toString())%0A    %7D%0A%7D%0A%0Afunction main(): void %7B%0A    let adapter: Adapter = new Adapter();%0A    while (true) %7B%0A        write(%22$%22, %22%22);%0A        const line = input();%0A        const args = line.split(%22 %22);%0A        write(line);%0A%0A        if      (args%5B0%5D === %22end%22      ) %7B break;                                   %7D%0A        else if (args%5B0%5D === %22setDriver%22) %7B adapter.setDriver(args%5B1%5D, +args%5B2%5D);    %7D%0A        else if (args%5B0%5D === %22setPass%22  ) %7B adapter.setPassenger(args%5B1%5D, +args%5B2%5D); %7D%0A        else if (args%5B0%5D === %22drive%22    ) %7B adapter.drive(+args%5B1%5D);                 %7D%0A        else if (args%5B0%5D === %22leavePass%22) %7B adapter.leavePassenger();                %7D%0A        else if (args%5B0%5D === %22show%22     ) %7B adapter.show();                          %7D%0A        else                              %7B console.log(%22fail: command not found%22);  %7D%0A    %7D%0A%7D%0A%0Amain();\n+%0A name,%0A+ %0A money)%0A-)%0A ;%250A    %257D%250A\n %0A\n"
+        },
+        {
+            "label": "2024-12-05_23-16-17",
+            "content": "@@ -1233,25 +1233,17 @@\n rn this.\n-motorista\n+P\n ;%0A    %7D%0A\n@@ -1463,16 +1463,17 @@\n a = nome\n+;\n %0A       \n@@ -1516,32 +1516,14 @@\n me: \n-string, dinheiro: number\n+Pessoa\n ): v\n@@ -1554,72 +1554,15 @@\n eiro\n-?.setNome(nome);%0A        this.passageiro?.setDinheiro(dinheiro);\n+ = nome\n %0A   \n@@ -2090,20 +2090,31 @@\n iro(\n+new Pessoa(\n name,\n- \n money)\n+)\n ;%0A  \n"
+        },
+        {
+            "label": "2024-12-05_23-19-56",
+            "content": "@@ -1806,153 +1806,8 @@\n   %7D%0A\n-        if(this.getPassageiro == null)%7B%0A            return %60Cost: $%7Bthis.getCusto()%7D, Driver: $%7Bthis.getMotorista()%7D, Passenger: none%60%0A        %7D%0A\n     \n"
+        },
+        {
+            "label": "2024-12-05_23-23-10",
+            "content": "@@ -1936,17 +1936,16 @@\n r: none%60\n-;\n %0A       \n"
+        },
+        {
+            "label": "2024-12-05_23-29-02",
+            "content": "@@ -851,86 +851,8 @@\n    %7D\n-%0A%0A    toString(): string%7B%0A        return %60$%7Bthis.nome%7D:$%7Bthis.dinheiro%7D%60%0A    %7D\n %0A%7D%0A%0A\n"
+        },
+        {
+            "label": "2024-12-05_23-31-37",
+            "content": "@@ -1545,25 +1545,24 @@\n rista = nome\n-;\n %0A        %0A  \n@@ -1861,33 +1861,32 @@\n Passenger: None%60\n-;\n %0A        %7D%0A     \n@@ -1882,33 +1882,32 @@\n     %7D%0A        if\n- \n (this.getPassage\n@@ -1910,33 +1910,32 @@\n sageiro == null)\n- \n %7B%0A            re\n@@ -2005,25 +2005,25 @@\n  Passenger: \n-N\n+n\n one%60;%0A      \n"
+        },
+        {
+            "label": "2024-12-05_23-37-49",
+            "content": "@@ -1912,18 +1912,16 @@\n ssageiro\n-()\n  == null\n"
+        },
+        {
+            "label": "2024-12-05_23-38-07",
+            "content": "@@ -1594,30 +1594,48 @@\n geiro(nome: \n-Pessoa\n+string, dinheiro: number\n ): void%7B%0A   \n@@ -1654,23 +1654,79 @@\n ssageiro\n- = nome\n+?.setNome(nome);%0A        this.passageiro?.setDinheiro(dinheiro)\n ;%0A    %7D%0A\n@@ -2398,39 +2398,28 @@\n sageiro(\n-new Pessoa(\n name,\n+ \n money)\n-)\n ;%0A    %7D%0A\n"
+        },
+        {
+            "label": "2024-12-05_23-41-27",
+            "content": "@@ -2267,23 +2267,16 @@\n : string\n- %7C null\n , money:\n@@ -2470,43 +2470,8 @@\n d %7B%0A\n-        this.setPassenger(null,0);%0A\n     \n"
+        },
+        {
+            "label": "2024-12-05_23-44-27",
+            "content": "@@ -1604,17 +1604,16 @@\n : Pessoa\n-,\n ): void%7B\n@@ -2259,32 +2259,39 @@\n ger(name: string\n+ %7C null\n , money: number)\n@@ -2469,24 +2469,59 @@\n r(): void %7B%0A\n+        this.setPassenger(null,0);%0A\n     %7D%0A%0A    s\n"
+        },
+        {
+            "label": "2024-12-05_23-51-26",
+            "content": "@@ -2471,60 +2471,8 @@\n d %7B%0A\n-        console.log(%60$%7Bthis.moto.getPassageiro()%7D%60)%0A\n     \n"
+        },
+        {
+            "label": "2024-12-05_23-58-25",
+            "content": "@@ -2519,19 +2519,8 @@\n ro()\n- + %22 leave%22\n %7D%60)%0A\n"
+        },
+        {
+            "label": "2024-12-06_00-02-04",
+            "content": "@@ -2467,25 +2467,16 @@\n  void %7B%0A\n-        %0A\n         \n@@ -2534,39 +2534,8 @@\n %7D%60)%0A\n-        this.moto.setCusto(0);%0A\n     \n"
+        },
+        {
+            "label": "2024-12-06_00-04-11",
+            "content": "@@ -1657,51 +1657,8 @@\n  %7D%0A%0A\n-%0A    public leaveP(): void%7B%0A        %0A    %7D%0A\n     \n@@ -2543,65 +2543,8 @@\n %7D%60)%0A\n-        this.passageiro.setDinheiro(-this.moto.getCusto)%0A\n     \n@@ -2570,17 +2570,16 @@\n sto(0);%0A\n-%0A\n     %7D%0A%0A \n"
+        },
+        {
+            "label": "2024-12-06_00-10-00",
+            "content": "@@ -1681,16 +1681,24 @@\n : void%7B%0A\n+        \n %0A    %7D%0A \n@@ -2582,16 +2582,73 @@\n ave%22%7D%60)%0A\n+        this.passageiro.setDinheiro(-this.moto.getCusto)%0A\n         \n"
+        },
+        {
+            "label": "2024-12-06_00-10-34",
+            "content": "@@ -1681,24 +1681,16 @@\n : void%7B%0A\n-        \n %0A    %7D%0A \n@@ -2578,65 +2578,8 @@\n %7D%60)%0A\n-        this.passageiro.setDinheiro(-this.moto.getCusto)%0A\n     \n"
+        },
+        {
+            "label": "2024-12-06_00-13-24",
+            "content": "@@ -550,9 +550,8 @@\n eiro\n-'\n ;%0A  \n"
+        },
+        {
+            "label": "2024-12-06_00-54-15",
+            "content": "@@ -538,32 +538,33 @@\n heiro = dinheiro\n+'\n ;%0A    %7D%0A%0A    pub\n"
+        },
+        {
+            "label": "2024-12-06_00-54-38",
+            "content": "@@ -2582,16 +2582,73 @@\n ave%22%7D%60)%0A\n+        this.passageiro.setDinheiro(-this.moto.getCusto)%0A\n         \n"
+        },
+        {
+            "label": "2024-12-06_00-55-57",
+            "content": "@@ -1671,19 +1671,16 @@\n c leaveP\n-ass\n (): void\n@@ -1693,417 +1693,8 @@\n     \n-console.log(this.getPassageiro() + %22 leave%22);%0A    %7D%0A%0A    public drivee(distancia: number): void%7B%0A        if (this.passageiro?.getDinheiro() == 0) %7B%0A            console.log(%22fail: Passenger does not have enough money%22);%0A            return;%0A        %7D%0A        if (this.motorista == null) %7B%0A            console.log(%22Fail: A moto n%C3%A3o tem motorista%22);%0A            return%0A        %7D%0A%0A        this.setCusto(distancia);\n %0A   \n@@ -2458,14 +2458,16 @@\n oto.\n-drivee\n+setCusto\n (dis\n@@ -2522,28 +2522,100 @@\n     \n-this.moto.leavePass(\n+%0A        console.log(%60$%7Bthis.moto.getPassageiro() + %22 leave%22%7D%60)%0A        this.moto.setCusto(0\n );%0A%0A\n"
+        },
+        {
+            "label": "2024-12-06_01-11-22",
+            "content": "@@ -1742,59 +1742,8 @@\n %22);%0A\n-        this.passageiro?.setDinheiro(-this.custo);%0A\n     \n@@ -2948,25 +2948,24 @@\n avePass();%0A%0A\n-%0A\n     %7D%0A%0A    s\n"
+        },
+        {
+            "label": "2024-12-06_01-14-08",
+            "content": "@@ -833,17 +833,16 @@\n inheiro \n-+\n = value;\n"
+        },
+        {
+            "label": "2024-12-06_01-16-29",
+            "content": "@@ -833,16 +833,17 @@\n inheiro \n++\n = value;\n"
+        },
+        {
+            "label": "2024-12-06_01-16-43",
+            "content": "@@ -1696,102 +1696,102 @@\n     \n-this.passageiro?.setDinheiro(-this.custo);%0A        console.log(this.getPassageiro() + %22 leave%22\n+console.log(this.getPassageiro() + %22 leave%22);%0A        this.passageiro?.setDinheiro(-this.custo\n );%0A \n"
+        },
+        {
+            "label": "2024-12-06_01-24-20",
+            "content": "@@ -833,17 +833,16 @@\n inheiro \n-+\n = value;\n"
+        },
+        {
+            "label": "2024-12-06_01-26-19",
+            "content": "@@ -1794,33 +1794,8 @@\n %22);%0A\n-        this.setCusto(0)%0A\n     \n"
+        },
+        {
+            "label": "2024-12-06_01-26-47",
+            "content": "@@ -1794,63 +1794,8 @@\n %22);%0A\n-        this.passageiro?.setDinheiro(this.getCusto());%0A\n     \n"
+        },
+        {
+            "label": "2024-12-06_01-27-18",
+            "content": "@@ -1869,17 +1869,16 @@\n Custo(0)\n-;\n %0A    %7D%0A%0A\n"
+        },
+        {
+            "label": "2024-12-06_01-29-18",
+            "content": "@@ -1803,25 +1803,26 @@\n    this.\n-motorista\n+passageiro\n ?.setDin\n"
+        },
+        {
+            "label": "2024-12-06_01-30-40",
+            "content": "@@ -1874,42 +1874,8 @@\n 0);%0A\n-        this.setPassageiro(null);%0A\n     \n"
+        },
+        {
+            "label": "2024-12-06_01-31-07",
+            "content": "@@ -1605,23 +1605,16 @@\n : Pessoa\n- %7C null\n ,): void\n"
+        },
+        {
+            "label": "2024-12-06_01-32-55",
+            "content": "@@ -1460,17 +1460,16 @@\n s.custo \n-+\n = value;\n"
+        },
+        {
+            "label": "2024-12-06_01-33-44",
+            "content": "@@ -1732,34 +1732,29 @@\n heiro(-this.\n-getC\n+c\n usto\n-()\n );%0A        c\n"
+        },
+        {
+            "label": "2024-12-06_01-35-26",
+            "content": "@@ -1753,62 +1753,8 @@\n ));%0A\n-        this.motorista?.setDinheiro(this.getCusto());%0A\n     \n@@ -1820,32 +1820,71 @@\n his.\n-setCusto(-\n+motorista?.setDinheiro(this.getCusto());%0A        \n this.\n-g\n+s\n etCusto(\n ));%0A\n@@ -1871,33 +1871,33 @@\n   this.setCusto(\n-)\n+0\n );%0A        this.\n"
+        },
+        {
+            "label": "2024-12-06_01-36-48",
+            "content": "@@ -2014,9 +2014,9 @@\n eiro\n-!\n+?\n .get\n@@ -2030,13 +2030,14 @@\n o() \n-%3C\n+=\n = 0)\n+ \n %7B%0A  \n@@ -2101,24 +2101,44 @@\n gh money%22);%0A\n+            return;%0A\n         %7D%0A  \n@@ -2242,33 +2242,32 @@\n           return\n-;\n %0A        %7D%0A%0A    \n"
+        },
+        {
+            "label": "2024-12-06_01-45-18",
+            "content": "@@ -2037,51 +2037,8 @@\n 0)%7B%0A\n-            this.passageiro?.setDinheiro()%0A\n     \n"
+        },
+        {
+            "label": "2024-12-06_01-46-28",
+            "content": "@@ -2074,30 +2074,16 @@\n inheiro(\n--this.getCusto\n )%0A      \n"
+        },
+        {
+            "label": "2024-12-06_01-47-00",
+            "content": "@@ -2088,18 +2088,16 @@\n getCusto\n-()\n )%0A      \n"
+        },
+        {
+            "label": "2024-12-06_01-47-04",
+            "content": "@@ -1987,24 +1987,205 @@\n id%7B%0A        \n+if (this.passageiro!.getDinheiro() %3C= 0)%7B%0A            this.passageiro?.setDinheiro(-this.getCusto())%0A            console.log(%22fail: Passenger does not have enough money%22);%0A        %7D\n %0A        if \n"
+        },
+        {
+            "label": "2024-12-06_01-50-32",
+            "content": "@@ -1995,189 +1995,8 @@\n     \n-if (this.passageiro!.getDinheiro() %3C= 0)%7B%0A            this.passageiro?.setDinheiro(this.getCusto());%0A            console.log(%22fail: Passenger does not have enough money%22);%0A        %7D\n %0A   \n"
+        },
+        {
+            "label": "2024-12-06_01-50-41",
+            "content": "@@ -2066,33 +2066,32 @@\n ro?.setDinheiro(\n--\n this.getCusto())\n@@ -2203,32 +2203,91 @@\n ista == null) %7B%0A\n+            console.log(%22Fail: A moto n%C3%A3o tem motorista%22);%0A\n             retu\n"
+        },
+        {
+            "label": "2024-12-06_01-55-17",
+            "content": "@@ -2078,34 +2078,21 @@\n iro(\n+-\n this.\n-passageiro.getDinheir\n+getCust\n o())\n"
+        },
+        {
+            "label": "2024-12-06_01-56-46",
+            "content": "@@ -2070,25 +2070,24 @@\n setDinheiro(\n--\n this.passage\n"
+        },
+        {
+            "label": "2024-12-06_01-57-14",
+            "content": "@@ -2049,141 +2049,140 @@\n     \n-console.log(%22fail: Passenger does not have enough money%22);%0A            this.passageiro?.setDinheiro(-this.passageiro.getDinheiro());%0A\n+this.passageiro?.setDinheiro(-this.passageiro.getDinheiro());%0A            console.log(%22fail: Passenger does not have enough money%22);\n %0A   \n"
+        },
+        {
+            "label": "2024-12-06_01-57-27",
+            "content": "@@ -815,83 +815,8 @@\n id%7B%0A\n-        if (this.dinheiro %3C= 0) %7B%0A            this.dinheiro = 0;%0A        %7D%0A\n     \n"
+        },
+        {
+            "label": "2024-12-06_01-58-18",
+            "content": "@@ -2216,24 +2216,25 @@\n setDinheiro(\n+-\n this.passage\n@@ -2254,15 +2254,8 @@\n ro()\n- * (-1)\n );%0A%0A\n"
+        },
+        {
+            "label": "2024-12-06_01-59-40",
+            "content": "@@ -1772,220 +1772,8 @@\n id%7B%0A\n-        if (this.passageiro!.getDinheiro() %3C= 0)%7B%0A            console.log(%22fail: Passenger does not have enough money%22);%0A            this.passageiro?.setDinheiro(this.passageiro.getDinheiro() * (-1));%0A%0A        %7D%0A\n     \n@@ -2062,24 +2062,227 @@\n id%7B%0A        \n+if (this.passageiro!.getDinheiro() %3C= 0)%7B%0A            console.log(%22fail: Passenger does not have enough money%22);%0A            this.passageiro?.setDinheiro(this.passageiro.getDinheiro() * (-1));%0A%0A        %7D\n %0A        if \n"
+        },
+        {
+            "label": "2024-12-06_02-00-18",
+            "content": "@@ -1760,32 +1760,244 @@\n vePass(): void%7B%0A\n+        if (this.passageiro!.getDinheiro() %3C= 0)%7B%0A            console.log(%22fail: Passenger does not have enough money%22);%0A            this.passageiro?.setDinheiro(this.passageiro.getDinheiro() * (-1));%0A%0A        %7D%0A\n         this.pas\n@@ -2282,211 +2282,8 @@\n     \n-if (this.passageiro!.getDinheiro() %3C= 0)%7B%0A            console.log(%22fail: Passenger does not have enough money%22);%0A            this.passageiro?.setDinheiro(this.passageiro.getDinheiro() * (-1));%0A%0A        %7D\n %0A   \n"
+        },
+        {
+            "label": "2024-12-06_02-02-16",
+            "content": "@@ -2089,68 +2089,9 @@\n eiro\n-?.getDinheiro() != null &&)%7B%0A            if (this.passageiro\n+!\n .get\n@@ -2108,20 +2108,16 @@\n  %3C= 0)%7B%0A\n-    \n         \n@@ -2253,37 +2253,17 @@\n ro()\n-);%0A            %7D%0A            \n+ * (-1));\n %0A%0A  \n"
+        },
+        {
+            "label": "2024-12-06_02-06-00",
+            "content": "@@ -2109,16 +2109,18 @@\n != null \n+&&\n )%7B%0A     \n"
+        },
+        {
+            "label": "2024-12-06_02-06-06",
+            "content": "@@ -2248,28 +2248,24 @@\n             \n-    \n this.passage\n"
+        },
+        {
+            "label": "2024-12-06_02-06-15",
+            "content": "@@ -2323,32 +2323,46 @@\n ;%0A            %7D%0A\n+            %0A%0A\n         %7D%0A      \n"
+        },
+        {
+            "label": "2024-12-06_02-06-46",
+            "content": "@@ -2161,26 +2161,8 @@\n ro()\n- - this.getCusto()\n  %3C= \n"
+        },
+        {
+            "label": "2024-12-06_02-07-20",
+            "content": "@@ -2132,26 +2132,8 @@\n if (\n-this.getCusto() - \n this\n@@ -2157,16 +2157,34 @@\n nheiro()\n+ - this.getCusto()\n  %3C= 0)%7B%0A\n"
+        },
+        {
+            "label": "2024-12-06_02-08-47",
+            "content": "@@ -908,16 +908,17 @@\n inheiro \n++\n = value;\n@@ -1809,40 +1809,9 @@\n iro(\n-this.passageiro.getDinheiro() - \n+-\n this\n@@ -1864,39 +1864,8 @@\n iro(\n-this.motorista.getDinheiro() - \n this\n@@ -2120,32 +2120,50 @@\n             if (\n+this.getCusto() - \n this.passageiro.\n@@ -2179,26 +2179,8 @@\n ro()\n- - this.getCusto()\n  %3C= \n"
+        },
+        {
+            "label": "2024-12-06_02-11-40",
+            "content": "@@ -1919,17 +1919,17 @@\n heiro() \n-+\n+-\n  this.ge\n"
+        },
+        {
+            "label": "2024-12-06_02-12-20",
+            "content": "@@ -2218,16 +2218,34 @@\n nheiro()\n+ - this.getCusto()\n  %3C= 0)%7B%0A\n"
+        },
+        {
+            "label": "2024-12-06_02-14-28",
+            "content": "@@ -908,17 +908,16 @@\n inheiro \n-+\n = value;\n@@ -1804,17 +1804,48 @@\n inheiro(\n--\n+this.passageiro.getDinheiro() - \n this.get\n@@ -1886,24 +1886,55 @@\n setDinheiro(\n+this.motorista.getDinheiro() + \n this.getCust\n"
+        },
+        {
+            "label": "2024-12-06_02-17-45",
+            "content": "@@ -1828,291 +1828,8 @@\n ));%0A\n-        if (this.passageiro?.getDinheiro() != null )%7B%0A            if (this.passageiro.getDinheiro() %3C= 0)%7B%0A                console.log(%22fail: Passenger does not have enough money%22);%0A                this.passageiro?.setDinheiro(this.passageiro.getDinheiro());%0A            %7D%0A        %7D%0A\n     \n@@ -3289,24 +3289,26 @@\n eavePass();%0A\n+%0A%0A\n     %7D%0A%0A    s\n"
+        },
+        {
+            "label": "2024-12-06_02-30-54",
+            "content": "@@ -2345,24 +2345,298 @@\n id%7B%0A        \n+if (this.passageiro?.getDinheiro() != null )%7B%0A            if (this.passageiro.getDinheiro() %3C= 0)%7B%0A                console.log(%22fail: Passenger does not have enough money%22);%0A                this.passageiro?.setDinheiro(this.passageiro.getDinheiro());%0A            %7D%0A        %7D\n %0A        if \n"
+        },
+        {
+            "label": "2024-12-06_02-31-15",
+            "content": "@@ -2051,16 +2051,45 @@\n inheiro(\n+this.passageiro.getDinheiro()\n );%0A     \n@@ -2357,16 +2357,76 @@\n %0A       \n+ if (this.motorista == null) %7B%0A            return;%0A        %7D\n %0A%0A      \n"
+        },
+        {
+            "label": "2024-12-06_02-32-04",
+            "content": "@@ -2051,17 +2051,16 @@\n inheiro(\n-0\n );%0A     \n"
+        },
+        {
+            "label": "2024-12-06_02-32-13",
+            "content": "@@ -2312,16 +2312,33 @@\n ): void%7B\n+%0A        %0A       \n %0A%0A      \n"
+        },
+        {
+            "label": "2024-12-06_02-43-04",
+            "content": "function input(): string { let X: any = input; X.L = X.L || require(\"fs\").readFileSync(0).toString().split(/\\r?\\n/); return X.L.shift(); } // _TEST_ONLY_\n//function input(): string { let X: any = input; X.P = X.P || require(\"readline-sync\"); return X.P.question() } // _FREE_ONLY_\nfunction write(text: any, endl=\"\\n\") { process.stdout.write(\"\" + text + endl); }\nexport {};\n\nclass Pessoa{\n    private nome: string;\n    private dinheiro: number;\n\n    constructor(nome: string, dinheiro: number){\n        this.nome = nome ;\n        this.dinheiro = dinheiro;\n    }\n\n    public getNome(): string{\n        return this.nome;\n    }\n\n    public getDinheiro(): number {\n        return this.dinheiro;\n    }\n\n    public setNome(value: string): void {\n        this.nome = value;\n    }\n\n    public setDinheiro(value: number): void{\n        if (this.dinheiro <= 0) {\n            this.dinheiro = 0;\n        }\n        this.dinheiro += value;\n    }\n\n    toString(): string{\n        return `${this.nome}:${this.dinheiro}`\n    }\n}\n\nclass Moto{\n    private custo: number;\n    private motorista: Pessoa | null;\n    private passageiro: Pessoa | null;\n\n    constructor(){\n        this.custo = 0;\n        this.motorista = null;\n        this.passageiro = null;        \n    }\n\n    public getPassageiro(): Pessoa | null{\n        return this.passageiro;\n    }\n\n    public getMotorista(): Pessoa | null{\n        return this.motorista;\n    }\n    \n    public getCusto(): number{\n        return this.custo;\n    }\n\n    public setCusto(value: number): void{\n        this.custo += value;\n    }\n\n    public setMotorista(nome: Pessoa): void{\n        this.motorista = nome;\n        \n    }\n\n    public setPassageiro(nome: Pessoa | null,): void{\n        this.passageiro = nome;\n    }\n\n\n    public leavePass(): void{\n        this.passageiro?.setDinheiro(-this.getCusto());\n        if (this.passageiro?.getDinheiro() != null ){\n            if (this.passageiro.getDinheiro() <= 0){\n                console.log(\"fail: Passenger does not have enough money\");\n                this.passageiro?.setDinheiro(0);\n            }\n        }\n        this.motorista?.setDinheiro(this.getCusto());\n        console.log(this.getPassageiro() + \" leave\");\n        this.setCusto(-this.getCusto());\n        this.setPassageiro(null);\n    }\n\n    public drivee(distancia: number): void{\n\n        this.setCusto(distancia);\n    }\n    toString(): string{\n\n        if (this.getMotorista() == null) {\n            return `Cost: ${this.getCusto()}, Driver: None, Passenger: None`;\n        }\n        if (this.getPassageiro() == null) {\n            return `Cost: ${this.getCusto()}, Driver: ${this.getMotorista()}, Passenger: None`;\n        }\n        return `Cost: ${this.getCusto()}, Driver: ${this.getMotorista()}, Passenger: ${this.getPassageiro()}`\n    }\n}\n\nclass Adapter {\n    moto: Moto = new Moto();\n\n\n    setDriver(name: string, money: number): void {\n        this.moto.setMotorista(new Pessoa(name,money));\n    }\n\n    setPassenger(name: string, money: number): void {\n        this.moto.setPassageiro(new Pessoa(name,money));\n    }\n\n    drive(distance: number): void {\n        this.moto.drivee(distance);\n    }\n\n    leavePassenger(): void {\n        this.moto.leavePass();\n    }\n\n    show(): void {\n        console.log(this.moto.toString())\n    }\n}\n\nfunction main(): void {\n    let adapter: Adapter = new Adapter();\n    while (true) {\n        write(\"$\", \"\");\n        const line = input();\n        const args = line.split(\" \");\n        write(line);\n\n        if      (args[0] === \"end\"      ) { break;                                   }\n        else if (args[0] === \"setDriver\") { adapter.setDriver(args[1], +args[2]);    }\n        else if (args[0] === \"setPass\"  ) { adapter.setPassenger(args[1], +args[2]); }\n        else if (args[0] === \"drive\"    ) { adapter.drive(+args[1]);                 }\n        else if (args[0] === \"leavePass\") { adapter.leavePassenger();                }\n        else if (args[0] === \"show\"     ) { adapter.show();                          }\n        else                              { console.log(\"fail: command not found\");  }\n    }\n}\n\nmain();\n"
+        }
+    ]
+}
