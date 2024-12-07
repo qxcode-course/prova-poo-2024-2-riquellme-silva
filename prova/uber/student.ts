@@ -63,8 +63,8 @@ class Moto{
         this.custo += value;
     }
 
-    public setMotorista(nome: Pessoa): void{
-        this.motorista = nome;
+    public setMotorista(value: Pessoa): void{
+        this.motorista = value;
         
     }
 
